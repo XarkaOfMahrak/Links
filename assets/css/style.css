@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
 
 body {
-    background: url('../images/bg.jpg');
+    background: no-repeat center fixed url('../images/bg.jpg');
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
-	background-size: cover;
+    background-size: cover;
 }
 
 #userPhoto {
