@@ -29,15 +29,20 @@
         <a class="link" href="https://twitter.com/XarkaOfMahrak" target="_blank"><span class="icon"><i class="fab fa-twitter"></i> </span><span class="content">Twitter</span></a>
         <a class="link" href="https://www.instagram.com/XarkaOfMahrak/" target="_blank"><span class="icon"><i class="fab fa-instagram"></i> </span><span class="content">Instagram</span></a>
         <a class="link" href="https://toyhou.se/Xarka" target="_blank"><span class="icon"><i class="fas fa-users"></i> </span><span class="content">Toyhouse</span></a>
-	    <a class="link" href="#" onclick="changeTextOfLink(event)" data-textonclic="Xarka#6188" draggable="false"><span class="icon"><i class="fab fa-discord"></i> </span><span class="content">Discord</span></a>
+	    <a class="link" href="#" onclick="displayTextOfLink(event)" data-textonclic="Xarka#6188" draggable="false"><span class="icon"><i class="fab fa-discord"></i> </span><span class="content">Discord</span></a>
         <a class="link" href="mailto:xarka@tamaran.su" target="_blank"><span class="icon"><i class="fas fa-envelope"></i> </span><span class="content">E-mail</span></a>
     </div>
 	<script>
-		function changeTextOfLink(event) {	
-			event.currentTarget.querySelector('.content').innerHTML = event.currentTarget.dataset.textonclic;
+		function displayTextOfLink(event) {	
+			var textTarget = event.currentTarget.querySelector('.content')
+			textTarget.innerHTML = event.currentTarget.dataset.textonclic;
+			
+			event.currentTarget.classList.add("selectable");
+			
 			event = event || window.event;
 			event.preventDefault();
 		}
+		
 	</script>
 </body>
 
