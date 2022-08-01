@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <title>Xarka</title>
     <link rel="stylesheet" href="assets/css/style.css?v=1.0">
+    <link rel="stylesheet" href="assets/css/flag-icons.css?v=1.0">
     <link rel="icon" href="assets/images/favicon.png?v=1.0" type="image/x-icon" />
 	<script src="https://kit.fontawesome.com/beea6c1bc5.js" crossorigin="anonymous"></script>
 
@@ -17,19 +18,27 @@
         <img id="userPhoto" src="assets/images/profile.jpg?v=1.1" alt="Profile picture of Xarka">
         <div id="userName">
             <h1>Xarka</h1>
-            <p>30-Ish | FR/EN | She/Her</p>
+            <p>
+				30-Ish | <span class="fi fi-fr fir" title="Français"></span>/<span class="fi fi-gb fir" title="English"></span> | <span class="fi fi-trans fic fis" title="Transgender"></span> Elle/She/Her
+			</p>
 			<p>PP par <a href="https://www.instagram.com/angellilou.art/" target="_blank" >Angellilou</a></p>
         </div>
     </div>
     <div id="links">
-	    <a class="link" href="https://xarka.notion.site/" target="_blank"><i class="fas fa-chalkboard"></i> Wiki</a>
-        <a class="link" href="https://twitter.com/XarkaOfMahrak" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
-        <a class="link" href="https://www.instagram.com/XarkaOfMahrak/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-        <a class="link" href="https://toyhou.se/Xarka" target="_blank"><i class="fas fa-users" aria-hidden="true"></i> Toyhouse</a>
-	    <a class="link" href="https://discordapp.com/users/185731057994301441/"><i class="fab fa-discord"></i> Discord</a>
-        <a class="link" href="mailto:xarka@tamaran.su" target="_blank"><i class="fas fa-envelope" aria-hidden="true"></i> E-mail</a>
+	    <a class="link" href="https://xarka.notion.site/" target="_blank"><span class="icon"><i class="fas fa-chalkboard"></i> </span><span class="content">Wiki</span></a>
+        <a class="link" href="https://twitter.com/XarkaOfMahrak" target="_blank"><span class="icon"><i class="fab fa-twitter"></i> </span><span class="content">Twitter</span></a>
+        <a class="link" href="https://www.instagram.com/XarkaOfMahrak/" target="_blank"><span class="icon"><i class="fab fa-instagram"></i> </span><span class="content">Instagram</span></a>
+        <a class="link" href="https://toyhou.se/Xarka" target="_blank"><span class="icon"><i class="fas fa-users"></i> </span><span class="content">Toyhouse</span></a>
+	    <a class="link" href="#" onclick="changeTextOfLink(event)" data-textonclic="Xarka#6188" draggable="false"><span class="icon"><i class="fab fa-discord"></i> </span><span class="content">Discord</span></a>
+        <a class="link" href="mailto:xarka@tamaran.su" target="_blank"><span class="icon"><i class="fas fa-envelope"></i> </span><span class="content">E-mail</span></a>
     </div>
-
+	<script>
+		function changeTextOfLink(event) {	
+			event.currentTarget.querySelector('.content').innerHTML = event.currentTarget.dataset.textonclic;
+			event = event || window.event;
+			event.preventDefault();
+		}
+	</script>
 </body>
 
 </html>
