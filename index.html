@@ -29,20 +29,41 @@
         <a class="link" href="https://twitter.com/XarkaOfMahrak" target="_blank"><span class="icon"><i class="fab fa-twitter"></i> </span><span class="content">Twitter</span></a>
         <a class="link" href="https://www.instagram.com/XarkaOfMahrak/" target="_blank"><span class="icon"><i class="fab fa-instagram"></i> </span><span class="content">Instagram</span></a>
         <a class="link" href="https://toyhou.se/Xarka" target="_blank"><span class="icon"><i class="fas fa-users"></i> </span><span class="content">Toyhouse</span></a>
-	    <a class="link" href="#" onclick="displayTextOfLink(event)" data-textonclic="Xarka#6188" draggable="false"><span class="icon"><i class="fab fa-discord"></i> </span><span class="content">Discord</span></a>
+	    <a class="link" href="#" onclick="toggleTextOfLink(event)" data-textonclic="Xarka#6188" draggable="false"><span class="icon"><i class="fab fa-discord"></i> </span><span class="content">Discord</span></a>
         <a class="link" href="mailto:xarka@tamaran.su" target="_blank"><span class="icon"><i class="fas fa-envelope"></i> </span><span class="content">E-mail</span></a>
     </div>
 	<script>
-		function displayTextOfLink(event) {	
+		function toggleTextOfLink(event) {	
 			var textTarget = event.currentTarget.querySelector('.content')
+			var oldtext=textTarget.innerHTML
 			textTarget.innerHTML = event.currentTarget.dataset.textonclic;
+			event.currentTarget.dataset.textonclic = oldtext;
 			
-			event.currentTarget.classList.add("selectable");
+			event.currentTarget.classList.toggle("selectable");
+			
+			if (event.currentTarget.classList.contains("selectable")) {
+				selectText(textTarget)			
+			}
 			
 			event = event || window.event;
 			event.preventDefault();
 		}
-		
+
+		function selectText(node) {
+			if (document.body.createTextRange) {
+				const range = document.body.createTextRange();
+				range.moveToElementText(node);
+				range.select();
+			} else if (window.getSelection) {
+				const selection = window.getSelection();
+				const range = document.createRange();
+				range.selectNodeContents(node);
+				selection.removeAllRanges();
+				selection.addRange(range);
+			} else {
+				console.warn("Could not select text in node: Unsupported browser.");
+			}
+		}		
 	</script>
 </body>
 
